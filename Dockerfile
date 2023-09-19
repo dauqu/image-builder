@@ -1,20 +1,15 @@
 # Use a base image with a package manager (Alpine Linux in this case)
 FROM alpine:latest
+#Copy project files to container
+COPY . /app
+#Set working directory
+WORKDIR /app
 
 #Install Golang 
 RUN apk add --no-cache go
 
 #get Go Version 
 RUN go version
-
-# Set an entry point (optional)
-CMD ["podman", "--version"]
-
-#Copy project files to container
-COPY . /app
-
-#Set working directory
-WORKDIR /app
 
 #Build the Go app
 RUN go build -o main .

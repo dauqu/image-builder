@@ -7,8 +7,8 @@ spec:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
     args: ["--dockerfile=/workspace/dockerfile",
-            "--context=https://github.com/GoogleCloudBuild/cloud-console-sample-build",
-            "--destination=<user-name>/<repo>"] # replace with your dockerhub account
+            "--context=git@github.com:dauqu/image-builder.git",
+            "--destination=harshaweb/kaniko:latest"] # replace with your dockerhub account
     volumeMounts:
       - name: kaniko-secret
         mountPath: /kaniko/.docker
